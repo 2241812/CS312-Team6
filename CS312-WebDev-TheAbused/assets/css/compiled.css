@@ -1,10 +1,6 @@
 @import 'fontawesome-all.min.css';
 @import 'https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400';
-/*
-	Stellar by HTML5 UP
-	html5up.net | @ajlkn
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
-*/
+
 html, body, div, span, applet, object,
 iframe, h1, h2, h3, h4, h5, h6, p, blockquote,
 pre, a, abbr, acronym, address, big, cite,
@@ -99,21 +95,210 @@ body {
   background-image: url("images/overlay.png"), -ms-linear-gradient(45deg, #e37682 15%, #5f4d93 85%);
   background-image: url("images/overlay.png"), linear-gradient(45deg, #e37682 15%, #5f4d93 85%);
 }
-body.is-preload *, body.is-preload *:before, body.is-preload *:after {
-  -moz-animation: none !important;
-  -webkit-animation: none !important;
-  -ms-animation: none !important;
-  animation: none !important;
-  -moz-transition: none !important;
-  -webkit-transition: none !important;
-  -ms-transition: none !important;
-  transition: none !important;
+/* Prefer reduced motion: disable animations for users who request it */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    -moz-animation: none !important;
+    -webkit-animation: none !important;
+    -ms-animation: none !important;
+    animation: none !important;
+    -moz-transition: none !important;
+    -webkit-transition: none !important;
+    -ms-transition: none !important;
+    transition: none !important;
+  }
 }
+
+/* Lightweight CSS-driven entrance animations to mimic original JS behavior */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* Base animated state: elements start slightly down and transparent and animate on load */
+.animate-on-load {
+  opacity: 0;
+  transform: translateY(12px);
+  will-change: transform, opacity;
+  animation-name: fadeUp;
+  animation-duration: 700ms;
+  animation-fill-mode: forwards;
+  animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+
+/* Fade-only variant */
+.animate-on-load.fade {
+  animation-name: fadeIn;
+}
+
+/* Stagger helpers */
+.stagger-1 { animation-delay: 120ms; }
+.stagger-2 { animation-delay: 240ms; }
+.stagger-3 { animation-delay: 360ms; }
+.stagger-4 { animation-delay: 480ms; }
+.stagger-5 { animation-delay: 600ms; }
+
+/* Specific page areas: start hidden then animate */
+#header { opacity: 0; transform: translateY(-6px); animation: fadeUp 600ms 80ms forwards cubic-bezier(0.215,0.61,0.355,1); }
+
+#nav ul li { opacity: 0; transform: translateY(6px); }
+#nav ul li:nth-child(1) { animation: fadeUp 520ms 160ms forwards; }
+#nav ul li:nth-child(2) { animation: fadeUp 520ms 240ms forwards; }
+#nav ul li:nth-child(3) { animation: fadeUp 520ms 320ms forwards; }
+#nav ul li:nth-child(4) { animation: fadeUp 520ms 400ms forwards; }
+
+/* Sections: first, second, cta and their inner contents */
+#first, #second, #cta { opacity: 0; transform: translateY(12px); }
+#first { animation: fadeUp 640ms 300ms forwards; }
+#first .major { animation: fadeUp 640ms 360ms forwards; }
+#first .features li { opacity: 0; transform: translateY(12px); }
+#first .features li:nth-child(1) { animation: fadeUp 620ms 420ms forwards; }
+#first .features li:nth-child(2) { animation: fadeUp 620ms 480ms forwards; }
+#first .features li:nth-child(3) { animation: fadeUp 620ms 540ms forwards; }
+
+#second { animation: fadeUp 680ms 360ms forwards; }
+#second .major { animation: fadeUp 680ms 420ms forwards; }
+#second .statistics li { opacity: 0; transform: translateY(12px); }
+#second .statistics li:nth-child(1) { animation: fadeUp 580ms 420ms forwards; }
+#second .statistics li:nth-child(2) { animation: fadeUp 580ms 480ms forwards; }
+#second .statistics li:nth-child(3) { animation: fadeUp 580ms 540ms forwards; }
+#second .statistics li:nth-child(4) { animation: fadeUp 580ms 600ms forwards; }
+#second .statistics li:nth-child(5) { animation: fadeUp 580ms 660ms forwards; }
+
+#cta { animation: fadeUp 700ms 420ms forwards; }
+#cta .major { animation: fadeUp 700ms 480ms forwards; }
+
+/* Float effect for #second on hover (only on hover-capable devices). Respects reduced-motion. */
+@media (hover: hover) and (pointer: fine) {
+  #second {
+    transition: transform 320ms cubic-bezier(0.22, 0.61, 0.36, 1), box-shadow 320ms cubic-bezier(0.22, 0.61, 0.36, 1);
+    will-change: transform, box-shadow;
+  }
+
+  #second:hover {
+    transform: translateY(-14px);
+    box-shadow: 0 24px 48px rgba(16,20,30,0.18);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #second, #second:hover { transform: none !important; box-shadow: none !important; transition: none !important; }
+}
+
+/* Float effect for lists and nav */
+@media (hover: hover) and (pointer: fine) {
+  /* Features and statistics list items lift on hover */
+  .features li, .statistics li {
+    transition: transform 260ms cubic-bezier(0.22,0.61,0.36,1), box-shadow 260ms cubic-bezier(0.22,0.61,0.36,1);
+    will-change: transform, box-shadow;
+  }
+
+  .features li:hover, .statistics li:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 18px 36px rgba(16,20,30,0.12);
+  }
+
+  /* First section float + lift for its children */
+  #first {
+    transition: transform 320ms cubic-bezier(0.22,0.61,0.36,1), box-shadow 320ms cubic-bezier(0.22,0.61,0.36,1);
+    will-change: transform, box-shadow;
+  }
+
+  #first:hover {
+    transform: translateY(-14px);
+    box-shadow: 0 24px 48px rgba(16,20,30,0.18);
+  }
+
+  #first .features li { transition: transform 240ms ease, box-shadow 240ms ease; }
+  #first .features li:hover { transform: translateY(-8px); box-shadow: 0 14px 28px rgba(16,20,30,0.10); }
+
+  /* Nav: sit slightly up and float further on hover */
+  #nav {
+    transform: translateY(-6px);
+    transition: transform 320ms cubic-bezier(0.22,0.61,0.36,1), box-shadow 320ms cubic-bezier(0.22,0.61,0.36,1);
+    will-change: transform, box-shadow;
+  }
+
+  #nav:hover {
+    transform: translateY(-20px);
+    box-shadow: 0 26px 56px rgba(16,20,30,0.14);
+  }
+
+  /* Small lift for nav items to add interactive feel */
+  #nav ul li { transition: transform 220ms ease; }
+  #nav ul li:hover { transform: translateY(-4px); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .features li, .statistics li, #nav, #nav ul li { transform: none !important; box-shadow: none !important; transition: none !important; }
+}
+
+/* Sticky/fixed navbar: follows the user while scrolling on larger screens */
+@media (min-width: 736px) {
+  #nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    z-index: 1200;
+    background: rgba(0,0,0,0.06);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    box-shadow: 0 1px 0 rgba(255,255,255,0.03) inset;
+    padding: 0.6rem 0;
+  }
+
+  /* Prevent content from being hidden under the fixed nav */
+  #nav + #main {
+    padding-top: 4.5rem;
+  }
+
+  /* Slightly compress nav on very wide screens */
+  @media (min-width: 1280px) {
+    #nav { padding: 0.45rem 0; }
+    #nav + #main { padding-top: 4rem; }
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #nav, #nav + #main { transition: none !important; transform: none !important; }
+}
+
+.spotlight .content, .spotlight .image, .features li, .statistics li, #main .main, #footer > section { opacity: 0; transform: translateY(12px); }
+.spotlight .content { animation: fadeUp 700ms 220ms forwards; }
+.spotlight .image { animation: fadeUp 700ms 320ms forwards; }
+.features li:nth-child(1) { animation: fadeUp 620ms 260ms forwards; }
+.features li:nth-child(2) { animation: fadeUp 620ms 340ms forwards; }
+.features li:nth-child(3) { animation: fadeUp 620ms 420ms forwards; }
+.statistics li:nth-child(1) { animation: fadeUp 580ms 260ms forwards; }
+.statistics li:nth-child(2) { animation: fadeUp 580ms 320ms forwards; }
+.statistics li:nth-child(3) { animation: fadeUp 580ms 380ms forwards; }
+.statistics li:nth-child(4) { animation: fadeUp 580ms 440ms forwards; }
+.statistics li:nth-child(5) { animation: fadeUp 580ms 500ms forwards; }
+#main > .main { animation: fadeUp 720ms 260ms forwards; }
+#footer > section { animation: fadeUp 700ms 380ms forwards; }
+
+/* Inline images: subtle scale on appear to mimic parallax feel */
+.spotlight .image img, .image img { transform-origin: center center; opacity: 0; }
+.spotlight .image img { animation: fadeIn 900ms 360ms forwards, fadeUp 900ms 360ms forwards; }
+
+/* Add utility to mark elements to animate without JS by default */
+.logo, #wrapper, #main, #footer { opacity: 0; }
+.logo { animation: fadeUp 520ms 120ms forwards; }
+#wrapper { animation: fadeUp 600ms 80ms forwards; }
+#main { animation: fadeUp 600ms 200ms forwards; }
+#footer { animation: fadeUp 600ms 520ms forwards; }
 
 /* Type */
 body {
   background-color: #935d8c;
-  color: rgba(255, 255, 255, 0.65);
+  /* Increase text opacity for better contrast/readability */
+  color: rgba(255, 255, 255, 0.95);
 }
 
 body, input, select, textarea {
@@ -867,9 +1052,7 @@ hr {
     box-sizing: border-box;
     align-items: stretch;
   }
-  .row > * {
-    box-sizing: border-box;
-  }
+  
   .row.gtr-uniform > * > :last-child {
     margin-bottom: 0;
   }
@@ -1486,19 +1669,20 @@ button.fit,
 .button.fit {
   width: 100%;
 }
-input[type=submit].small,
-input[type=reset].small,
-input[type=button].small,
-button.small,
-.button.small {
-  font-size: 0.8em;
+input[type=submit].primary:hover,
+input[type=reset].primary:hover,
+input[type=button].primary:hover,
+button.primary:hover,
+.button.primary:hover {
+  background-color: rgb(154, 207, 242);
 }
-input[type=submit].large,
-input[type=reset].large,
-input[type=button].large,
-button.large,
-.button.large {
-  font-size: 1.35em;
+input[type=submit].primary:active,
+input[type=reset].primary:active,
+input[type=button].primary:active,
+button.primary:active,
+.button.primary:active {
+  background-color: rgb(126, 195, 238);
+}
 }
 input[type=submit].disabled, input[type=submit]:disabled,
 input[type=reset].disabled,
