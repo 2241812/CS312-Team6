@@ -9,14 +9,44 @@
 		<title>Stellar by HTML5 UP</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-	<link rel="stylesheet" href="assets/css/compiled.css" />
+	<link rel="stylesheet" href="assets/css/main.css" />
+    <link rel="stylesheet" href="assets/css/fontawesome-all.min.css" />
+    <link rel="stylesheet" href="assets/css/noscript.css" />
 	<link rel="stylesheet" href="assets/css/animations.css" />
 	<link rel="stylesheet" href="assets/css/sections.css" />
 	<link rel="stylesheet" href="assets/css/nav.css" />
 	<link rel="stylesheet" href="assets/css/mobile.css" />
 	<noscript><link rel="stylesheet" href="../../../Downloads/html5up-stellar/assets/css/noscript.css" /></noscript>
 	</head>
-	<body>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const sections = document.querySelectorAll("section");
+            const navLinks = document.querySelectorAll("#nav ul li a");
+
+            const observer = new IntersectionObserver(
+                (entries) => {
+                    entries.forEach((entry) => {
+                        if (entry.isIntersecting) {
+                            // Remove "active" from all links
+                            navLinks.forEach((link) => link.classList.remove("active"));
+
+                            // Add "active" to the one matching the current section
+                            const activeLink = document.querySelector(`#nav a[href="#${entry.target.id}"]`);
+                            if (activeLink) activeLink.classList.add("active");
+                        }
+                    });
+                },
+                { threshold: 0.6 } // section is "active" when 60% in view
+            );
+
+            sections.forEach((section) => {
+                observer.observe(section);
+            });
+        });
+    </script>
+
+    <body>
 
 		<!-- Wrapper -->
 			<div id="wrapper">
@@ -33,7 +63,7 @@
 				<!-- Nav -->
 					<nav id="nav">
 						<ul>
-							<li><a href="#intro" class="active">Introduction</a></li>
+							<li><a href="#intro" class="active">Home</a></li>
 							<li><a href="#first">First Section</a></li>
 							<li><a href="#second">Second Section</a></li>
 							<li><a href="#cta">Get Started</a></li>
