@@ -1,68 +1,99 @@
-/* Mobile-first theme overrides (youthful mobile design) */
+/* Mobile-first theme overrides (dark mode mobile design) */
 @media (max-width: 735px) {
-  /* Use desktop-like gradient background and light text for parity with desktop theme */
-  body {
-    background-color: #935d8c;
-    background-image: url("assets/images/overlay.png"), linear-gradient(45deg, #e37682 15%, #5f4d93 85%);
-    color: rgba(255,255,255,0.95);
-  }
+    /* Dark gradient background with light text */
+    body {
+        background-color: #1a1a1a;
+        background-image: url("images/overlay.png"),
+        linear-gradient(45deg, #2c1e3f 15%, #162038 85%);
+        color: rgba(240, 240, 240, 0.95);
+    }
 
-  /* Increase base type for readability on phones */
-  body, input, select, textarea { font-size: 1.05rem; line-height: 1.6; }
+    /* Base type */
+    body, input, select, textarea {
+        font-size: 1.05rem;
+        line-height: 1.6;
+        color: rgba(240,240,240,0.9);
+        background-color: #222; /* darker form background */
+    }
 
-  /* Headings: friendly, larger */
-  h1 { font-size: 2rem; }
-  h2 { font-size: 1.5rem; }
+    /* Headings: bright for contrast */
+    h1 { font-size: 2rem; color: #ffffff; }
+    h2 { font-size: 1.5rem; color: #e0e0e0; }
 
-  /* Sections: keep spacing but blend with gradient background; center text */
-  section.main {
-    margin: 0.75rem 0.75rem;
-    padding: 1rem;
-    border-radius: 14px;
-    background: rgba(255,255,255,0.04); /* subtle light card over gradient */
-    box-shadow: 0 8px 24px rgba(16,20,30,0.06);
-    color: rgba(255,255,255,0.95);
-    text-align: center;
-  }
+    /* Sections: dark cards over dark gradient */
+    section.main {
+        margin: 0.75rem 0.75rem;
+        padding: 1rem;
+        border-radius: 14px;
+        background: rgba(255,255,255,0.06); /* slightly lighter overlay */
+        box-shadow: 0 8px 24px rgba(0,0,0,0.5);
+        color: rgba(240,240,240,0.95);
+        text-align: center;
+    }
 
-  /* Make images friendlier and full-bleed inside sections */
-  .spotlight .image img, .image img { width: 100%; height: auto; border-radius: 10px; display: block; }
+    /* Images: keep same */
+    .spotlight .image img, .image img {
+        width: 100%;
+        height: auto;
+        border-radius: 10px;
+        display: block;
+    }
 
-  /* Center content blocks and list items inside sections */
-  .spotlight .content, header.major, .features, .statistics { text-align: center; }
-  .features li, .statistics li { display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; }
+    /* Center blocks */
+    .spotlight .content, header.major, .features, .statistics {
+        text-align: center;
+    }
+    .features li, .statistics li {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+    }
 
-  /* Buttons: larger, rounded, colorful CTA */
-  .button, button, input[type="submit"], .actions .button {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    padding: 0.8rem 1.1rem;
-    border-radius: 999px;
-    background: linear-gradient(90deg,#ff7a59,#ffb199);
-    color: #fff !important;
-    font-weight: 600;
-    box-shadow: 0 10px 30px rgba(255,120,89,0.12);
-    line-height: 1;
-  }
+    /* Buttons: neon/accent for dark mode */
+    .button, button, input[type="submit"], .actions .button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0.8rem 1.1rem;
+        border-radius: 999px;
+        background: linear-gradient(90deg,#6a5acd,#00bcd4);
+        color: #fff !important;
+        font-weight: 600;
+        box-shadow: 0 10px 30px rgba(0,188,212,0.25);
+        line-height: 1;
+    }
 
-  /* Links: keep accent but lighter for contrast on gradient */
-  a { color: #ffd4c6; }
+    /* Links: bright teal/blue accent */
+    a { color: #5ad4ff; }
 
-  /* Simplify footer spacing */
-  #footer { margin: 1.25rem 0 2rem 0; padding: 1rem; }
+    /* Footer */
+    #footer {
+        margin: 1.25rem 0 2rem 0;
+        padding: 1rem;
+        background: rgba(255,255,255,0.04);
+        color: rgba(230,230,230,0.9);
+    }
 
-  /* Make nav links larger (stacked already handled in nav.css) */
-  #nav ul li a { font-size: 1.05rem; padding: 0.95rem 1rem; display: inline-flex; align-items: center; justify-content: center; line-height: 1; }
+    /* Nav links: brighter */
+    #nav ul li a {
+        font-size: 1.05rem;
+        padding: 0.95rem 1rem;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        line-height: 1;
+        color: #e0e0e0;
+    }
 
-  /* Slightly reduce entrance animation on mobile for speed */
-  .animate-on-load { animation-duration: 560ms; }
+    /* Slightly reduce entrance animation */
+    .animate-on-load { animation-duration: 560ms; }
 
-  /* Respect reduced-motion */
-  @media (prefers-reduced-motion: reduce) {
-    .animate-on-load { animation: none !important; transition: none !important; }
-  }
+    @media (prefers-reduced-motion: reduce) {
+        .animate-on-load { animation: none !important; transition: none !important; }
+    }
 }
 
-/* Non-mobile: keep file harmless */
+/* Non-mobile */
 @media (min-width: 736px) { }
