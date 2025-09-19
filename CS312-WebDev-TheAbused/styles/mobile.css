@@ -3,7 +3,7 @@
     /* Dark gradient background with light text */
     body {
         background-color: #1a1a1a;
-        background-image: url("../assets/images/overlay.png"),
+        background-image: url("assets/images/overlay.png"),
         linear-gradient(45deg, #2c1e3f 15%, #162038 85%);
         color: rgba(240, 240, 240, 0.95);
     }
