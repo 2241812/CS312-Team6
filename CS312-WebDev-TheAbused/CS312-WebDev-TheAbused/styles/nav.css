@@ -1,0 +1,114 @@
+/* Nav-specific styles: sticky and hover float */
+@media (min-width: 736px) {
+  #nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    z-index: 1200;
+    /* Solid white background for a clean navbar */
+    background: #ffffff;
+    border-bottom: 1px solid rgba(16,20,30,0.06);
+    box-shadow: 0 6px 18px rgba(16,20,30,0.04);
+    padding: 1rem 0; /* increased vertical space */
+  }
+  /* Make room for larger nav so it doesn't overlap content */
+  #nav + #main { padding-top: 6rem; }
+  @media (min-width: 1280px) { #nav { padding: 0.9rem 0; } #nav + #main { padding-top: 5.5rem; } }
+}
+
+@media (hover: hover) and (pointer: fine) {
+  /* Layout nav items as a compact horizontal list and enlarge link hit areas */
+  #nav { transform: translateY(0); transition: transform 320ms cubic-bezier(0.22,0.61,0.36,1), box-shadow 320ms cubic-bezier(0.22,0.61,0.36,1); will-change: transform, box-shadow; }
+  #nav:hover { transform: translateY(-8px); box-shadow: 0 26px 56px rgba(16,20,30,0.12); }
+
+  #nav ul { display: flex; gap: 0.75rem; justify-content: center; align-items: center; padding: 0; margin: 0; }
+  #nav ul li { list-style: none; }
+
+  /* Larger, clearer nav links (dark text for contrast on white bg) */
+  #nav ul li a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.6rem 1.1rem;
+    border-radius: 8px;
+    font-size: 1.05rem;
+    font-weight: 400;
+    letter-spacing: 0.02em;
+    color: #0f1720; /* dark text for readability */
+    -webkit-font-smoothing: antialiased;
+    transition: background-color 180ms ease, transform 180ms ease, color 180ms ease;
+    line-height: 1; /* avoid extra leading interfering with centering */
+  }
+
+  #nav ul li a:hover,
+  #nav ul li a:focus {
+    background-color: rgba(15,23,32,0.06); /* subtle dark tint */
+    color: #071014;
+    transform: translateY(-4px) scale(1.02);
+    box-shadow: 0 10px 24px rgba(16,20,30,0.08);
+    outline: none;
+  }
+
+  /* Active/current link stronger */
+  #nav ul li a.active {
+    background-color: rgba(15,23,32,0.04);
+    box-shadow: 0 8px 18px rgba(16,20,30,0.04) inset;
+    color: #071014;
+    font-weight: 600;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) { #nav, #nav + #main, #nav ul li { transition: none !important; transform: none !important; } }
+
+/* Mobile-specific adjustments: stack nav, make links touch-friendly, and avoid fixed overlap */
+@media (max-width: 735px) {
+  /* Make nav flow with the document on small screens */
+  #nav {
+    position: static;
+    width: 100%;
+    background: #ffffff;
+    border-bottom: 1px solid rgba(16,20,30,0.06);
+    box-shadow: none;
+    padding: 0.25rem 0;
+  }
+
+  /* Remove top padding added for fixed nav on desktop */
+  #nav + #main { padding-top: 0; }
+
+  /* Stack items vertically for easy tapping */
+  #nav ul { display: flex; flex-direction: column; gap: 0; padding: 0.25rem; }
+  #nav ul li { margin: 0; }
+
+  #nav ul li a {
+    display: block;
+    padding: 0.9rem 1rem;
+    text-align: center;
+    border-radius: 6px;
+    font-size: 1rem;
+    width: 100%;
+  background: transparent;
+  transition: background-color 120ms ease, color 120ms ease;
+  color: rgba(255,255,255,0.95); /* light links for dark background */
+  }
+
+  #nav ul li a:hover, #nav ul li a:focus {
+    background-color: rgba(15,23,32,0.04);
+    transform: none; /* avoid lift on touch */
+    box-shadow: none;
+  }
+
+  /* Active link keeps a subtle highlight but no inset shadow */
+  #nav ul li a.active {
+    background-color: rgba(15,23,32,0.04);
+    color: #071014;
+    font-weight: 600;
+    box-shadow: none;
+  }
+
+  /* Ensure reduced-motion users have no transitions on mobile */
+  @media (prefers-reduced-motion: reduce) {
+    #nav ul li a { transition: none !important; }
+  }
+}

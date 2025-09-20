@@ -1,0 +1,99 @@
+/* Mobile-first theme overrides (dark mode mobile design) */
+@media (max-width: 735px) {
+    /* Dark gradient background with light text */
+    body {
+        background-color: #1a1a1a;
+        background-image: url("assets/images/overlay.png"),
+        linear-gradient(45deg, #2c1e3f 15%, #162038 85%);
+        color: rgba(240, 240, 240, 0.95);
+    }
+
+    /* Base type */
+    body, input, select, textarea {
+        font-size: 1.05rem;
+        line-height: 1.6;
+        color: rgba(240,240,240,0.9);
+        background-color: #222; /* darker form background */
+    }
+
+    /* Headings: bright for contrast */
+    h1 { font-size: 2rem; color: #ffffff; }
+    h2 { font-size: 1.5rem; color: #e0e0e0; }
+
+    /* Sections: dark cards over dark gradient */
+    section.main {
+        margin: 0.75rem 0.75rem;
+        padding: 1rem;
+        border-radius: 14px;
+        background: rgba(255,255,255,0.06); /* slightly lighter overlay */
+        box-shadow: 0 8px 24px rgba(0,0,0,0.5);
+        color: rgba(240,240,240,0.95);
+        text-align: center;
+    }
+
+    /* Images: keep same */
+    .spotlight .image img, .image img {
+        width: 100%;
+        height: auto;
+        border-radius: 10px;
+        display: block;
+    }
+
+    /* Center blocks */
+    .spotlight .content, header.major, .features, .statistics {
+        text-align: center;
+    }
+    .features li, .statistics li {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+    }
+
+    /* Buttons: neon/accent for dark mode */
+    .button, button, input[type="submit"], .actions .button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0.8rem 1.1rem;
+        border-radius: 999px;
+        background: linear-gradient(90deg,#6a5acd,#00bcd4);
+        color: #fff !important;
+        font-weight: 600;
+        box-shadow: 0 10px 30px rgba(0,188,212,0.25);
+        line-height: 1;
+    }
+
+    /* Links: bright teal/blue accent */
+    a { color: #5ad4ff; }
+
+    /* Footer */
+    #footer {
+        margin: 1.25rem 0 2rem 0;
+        padding: 1rem;
+        background: rgba(255,255,255,0.04);
+        color: rgba(230,230,230,0.9);
+    }
+
+    /* Nav links: brighter */
+    #nav ul li a {
+        font-size: 1.05rem;
+        padding: 0.95rem 1rem;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        line-height: 1;
+        color: #e0e0e0;
+    }
+
+    /* Slightly reduce entrance animation */
+    .animate-on-load { animation-duration: 560ms; }
+
+    @media (prefers-reduced-motion: reduce) {
+        .animate-on-load { animation: none !important; transition: none !important; }
+    }
+}
+
+/* Non-mobile */
+@media (min-width: 736px) { }
