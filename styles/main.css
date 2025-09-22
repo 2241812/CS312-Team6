@@ -2631,6 +2631,42 @@ input, select, textarea {
 		text-align: center;
 	}
 
+	.banner {
+		text-align: center;
+		align-items: center;
+	}
+
+	.banner a{
+		margin: 1em 0 3em 0;
+	}
+
+	.donation-options {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 1.5rem;
+        margin: 2rem 0;
+    }
+        
+    .donation-option {
+        background: white;
+        border-radius: 8px;
+        padding: 1.5rem;
+        text-align: center;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        transition: transform 0.3s ease;
+    }
+
+	.donation-option img{
+		width: 250px;
+		height: 215px;
+	}
+
+	.impact-icon {
+        font-size: 2rem;
+		margin-right: 1rem;
+        color: #3498db;
+    }
+
 	header.major {
 		margin-bottom: 3em;
 	}
@@ -3412,8 +3448,8 @@ input, select, textarea {
 			#main button.primary,
 			#main .button.primary {
 				background-color: #8cc9f0;
-				color: #ffffff !important;
-				box-shadow: none;
+				color: black !important;
+				box-shadow: 1px 1px 1px rgb(164, 163, 163);
 			}
 
 				#main input[type="submit"].primary:hover,
@@ -3421,7 +3457,7 @@ input, select, textarea {
 				#main input[type="button"].primary:hover,
 				#main button.primary:hover,
 				#main .button.primary:hover {
-					background-color: #9acff2;
+					background-color: #68b6ea;
 				}
 
 				#main input[type="submit"].primary:active,
