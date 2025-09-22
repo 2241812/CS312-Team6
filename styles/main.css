@@ -177,15 +177,7 @@ input, select, textarea {
 	}
 
 		p.content {
-			-moz-columns: 20em 2;
-			-webkit-columns: 20em 2;
-			-ms-columns: 20em 2;
-			columns: 20em 2;
-			-moz-column-gap: 2em;
-			-webkit-column-gap: 2em;
-			-ms-column-gap: 2em;
-			column-gap: 2em;
-			text-align: justify;
+			text-align: center;
 		}
 
 	h1, h2, h3, h4, h5, h6 {
@@ -2631,44 +2623,16 @@ input, select, textarea {
 		text-align: center;
 	}
 
-	.banner {
-		text-align: center;
-		align-items: center;
-	}
-
-	.banner a{
-		margin: 1em 0 3em 0;
-	}
-
-	.donation-options {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-        gap: 1.5rem;
-        margin: 2rem 0;
-    }
-        
-    .donation-option {
-        background: white;
-        border-radius: 8px;
-        padding: 1.5rem;
+	header.special{
+		display: flex;
+        gap: 1em;
+        justify-content: center;
         text-align: center;
-        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-        transition: transform 0.3s ease;
-    }
-
-	.donation-option img{
-		width: 250px;
-		height: 215px;
+		align-content: center;
 	}
-
-	.impact-icon {
-        font-size: 2rem;
-		margin-right: 1rem;
-        color: #3498db;
-    }
 
 	header.major {
-		margin-bottom: 3em;
+		margin-bottom: 3em;		
 	}
 
 		header.major h2 {
@@ -2676,7 +2640,7 @@ input, select, textarea {
 		}
 
 			header.major h2:after {
-				display: block;
+				display: flex;
 				content: '';
 				width: 3.25em;
 				height: 2px;
@@ -2696,6 +2660,7 @@ input, select, textarea {
 
 		header.major.special {
 			text-align: center;
+			
 		}
 
 			header.major.special h2:after {
@@ -3110,6 +3075,9 @@ input, select, textarea {
 	#header {
 		padding: 5em 5em 1em 5em ;
 		text-align: center;
+		position: relative; /* Essential for positioning child elements */
+        width: 100%; /* Adjust as needed */
+        overflow: hidden; /* Hide overflowing video content */
 	}
 
 		#header h1 {
@@ -3254,8 +3222,7 @@ input, select, textarea {
 		background-color: #ffffff;
 		color: #636363;
 		position: sticky;
-        width: 100%;
-        max-width: 100%;
+		max-width: 100%;
 		padding: 1em;
 		background-color: #f7f7f7;
 		border-top-left-radius: 0.25em;
@@ -3714,6 +3681,31 @@ input, select, textarea {
 						}
 
 		}
+	
+
+.back-video{
+	top: 0;
+	left: 0;
+	display: block;
+	position: fixed;
+	overflow: hidden;
+	object-fit: cover;
+	width: 100%;
+	height: 100dvh;
+	z-index: -1;
+}
+
+.vid-contain{
+	position: absolute;
+	overflow: hidden;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 0;
+	object-fit: cover;
+	background-color: rgba(222, 222, 222, 0.5);
+}
 
 /* Footer */
 
@@ -3728,7 +3720,6 @@ input, select, textarea {
 		flex-wrap: wrap;
 		padding: 5em 5em 3em 5em ;
 		width: calc(100% + 2em);
-		margin: 0 0 3em -2em;
 	}
 
 		#footer > * {
@@ -3797,6 +3788,14 @@ input, select, textarea {
 		}
 
 /* Wrapper */
+	#wrapper-bg{
+		width:100%;
+		max-width: 100dvw;
+		background-color: #FAFAFA; /* Neutral */
+        background-image: url("assets/images/overlay.png"),
+        linear-gradient(45deg, #4DA6FF 15%, #6BCB77 85%); 
+	}	
+	
 
 	#wrapper {
 		width: 64em;
@@ -3819,3 +3818,7 @@ input, select, textarea {
 			}
 
 		}
+
+#mission-vission{
+	display:flex;
+}

@@ -1,7 +1,7 @@
 /* Nav-specific styles: sticky and hover float */
 @media (min-width: 736px) {
   #nav {
-    position: fixed;
+    position: sticky;
     top: 0;
     left: 0;
     right: 0;
@@ -21,7 +21,7 @@
 @media (hover: hover) and (pointer: fine) {
   /* Layout nav items as a compact horizontal list and enlarge link hit areas */
   #nav { transform: translateY(0); transition: transform 320ms cubic-bezier(0.22,0.61,0.36,1), box-shadow 320ms cubic-bezier(0.22,0.61,0.36,1); will-change: transform, box-shadow; }
-  #nav:hover { transform: translateY(-8px); box-shadow: 0 26px 56px rgba(16,20,30,0.12); }
+  /* #nav:hover { transform: translateY(-8px); box-shadow: 0 26px 56px rgba(16,20,30,0.12); } */
 
   #nav ul { display: flex; gap: 0.75rem; justify-content: center; align-items: center; padding: 0; margin: 0; }
   #nav ul li { list-style: none; }
@@ -33,7 +33,8 @@
     justify-content: center;
     padding: 0.6rem 1.1rem;
     border-radius: 8px;
-    font-size: 1.05rem;
+    font-size: 100%;
+    font-size: 1.2vw;
     font-weight: 400;
     letter-spacing: 0.02em;
     color: #0f1720; /* dark text for readability */
