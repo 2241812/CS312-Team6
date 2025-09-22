@@ -10,7 +10,7 @@
   /* Move visually and in layout to avoid a small gap appearing */
   transform: translateY(-3px);
   margin-top: -3px;
-  box-shadow: 0 24px 48px rgba(16,20,30,0.18);
+  box-shadow: 5px 15px 10px rgba(16,20,30,0.18);
   }
 
   .features li, .statistics li {

@@ -2511,6 +2511,7 @@ input, select, textarea {
 			justify-content: center;
 			width: 100%;
 			margin-left: 0;
+			margin-top: 20px;
 		}
 
 			ul.actions.special li:first-child {
@@ -2631,13 +2632,27 @@ input, select, textarea {
 		text-align: center;
 	}
 
+
+
 	.banner {
 		text-align: center;
 		align-items: center;
 	}
 
+	.banner h2{
+		font-weight: 500;
+		text-shadow: 1px 1px 1px whitesmoke;
+	}
+
+	.banner p{
+		font-weight: 400;
+		font-size: 18px;
+		text-shadow: 1px 1px 1px whitesmoke;
+	}
+
 	.banner a{
-		margin: 1em 0 3em 0;
+		margin: 3em 0 3em 0;
+		font-weight: 500;
 	}
 
 	.donation-options {
@@ -2656,6 +2671,10 @@ input, select, textarea {
         transition: transform 0.3s ease;
     }
 
+	.donation-option h3{
+		font-weight: 500;
+	}
+
 	.donation-option img{
 		width: 250px;
 		height: 215px;
@@ -2663,9 +2682,14 @@ input, select, textarea {
 
 	.impact-icon {
         font-size: 2rem;
+		font-weight: 500;
 		margin-right: 1rem;
         color: #3498db;
     }
+
+	.features li h3{
+		font-weight: 500;
+	}
 
 	header.major {
 		margin-bottom: 3em;
@@ -2673,6 +2697,7 @@ input, select, textarea {
 
 		header.major h2 {
 			font-size: 2em;
+			font-weight: 500;
 		}
 
 			header.major h2:after {
@@ -2690,8 +2715,11 @@ input, select, textarea {
 				}
 
 		header.major p {
+			color: #636363;
 			font-size: 1.25em;
+			font-weight: 400;
 			letter-spacing: -0.025em;
+			text-shadow: 1px 1px 1px rgb(245, 231, 231);
 		}
 
 		header.major.special {
@@ -3373,6 +3401,7 @@ input, select, textarea {
 		background-color: #ffffff;
 		color: #636363;
 		border-radius: 0.25em;
+		
 	}
 
 		#main input, #main select, #main textarea {
@@ -3447,7 +3476,7 @@ input, select, textarea {
 			#main input[type="button"].primary,
 			#main button.primary,
 			#main .button.primary {
-				background-color: #8cc9f0;
+				background: rgb(115, 195, 249);
 				color: black !important;
 				box-shadow: 1px 1px 1px rgb(164, 163, 163);
 			}
@@ -3457,7 +3486,7 @@ input, select, textarea {
 				#main input[type="button"].primary:hover,
 				#main button.primary:hover,
 				#main .button.primary:hover {
-					background-color: #68b6ea;
+					background-color: #55abe5;
 				}
 
 				#main input[type="submit"].primary:active,
@@ -3615,6 +3644,7 @@ input, select, textarea {
 		#main .spotlight .image {
 			border-color: #dddddd;
 		}
+
 
 		#main > .main {
 			padding: 5em 5em 3em 5em ;
