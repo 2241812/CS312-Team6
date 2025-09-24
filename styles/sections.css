@@ -155,75 +155,226 @@
   font-weight: bold;
   color: #6BCB77;
 }
+.simple-bar-chart {
+  --line-count: 10;
+  --line-color: currentcolor;
+  --line-opacity: 0.25;
+  --item-gap: 2%;
+  --item-default-color: #060606;
 
-/* ================= PIE CHART ================= */
-.pie-wrapper {
+  height: 10rem;
+  display: grid;
+  grid-auto-flow: column;
+  gap: var(--item-gap);
+  align-items: end;
+  padding-inline: var(--item-gap);
+  --padding-block: 1.5rem; /* space for labels */
+  padding-block: var(--padding-block);
   position: relative;
-  width: 250px;
-  height: 250px;
-  margin: 2rem auto;
-  cursor: pointer;
+  isolation: isolate;
 }
-.pie-chart {
-  width: 100%;
-  height: 100%;
-  border-radius: 50%;
-  background: conic-gradient(
-    #50c878 0% 40%,     /* Aurora */
-    #4a90e2 40% 65%,    /* Benguet */
-    #9b9fe2 65% 85%,    /* Abra */
-    #f5c542 85% 95%,    /* La Union */
-    #5bc0de 95% 100%    /* Pangasinan */
-  );
-  transform: rotate(-90deg); /* start at top */
-}
-/* White overlay that sweeps away on hover */
-.pie-wrapper::before {
+
+/* horizontal grid lines */
+.simple-bar-chart::after {
   content: "";
   position: absolute;
-  inset: 0;
-  border-radius: 50%;
-  background: #f9f9f9; /* match background */
-  transform-origin: center;
-  clip-path: polygon(50% 50%, 100% 50%, 100% 50%);
-}
-.pie-wrapper:hover::before {
-  animation: sweep 2.5s ease-out forwards;
-}
-@keyframes sweep {
-  from {
-    transform: rotate(0deg);
-    clip-path: polygon(50% 50%, 100% 50%, 100% 50%);
-  }
-  to {
-    transform: rotate(360deg);
-    clip-path: polygon(50% 50%, 100% 50%, 100% 0, 0 0, 0 100%, 100% 100%);
-  }
+  inset: var(--padding-block) 0;
+  z-index: -1;
+  --line-width: 1px;
+  --line-spacing: calc(100% / var(--line-count));
+  background-image: repeating-linear-gradient(
+    to top,
+    transparent 0 calc(var(--line-spacing) - var(--line-width)),
+    var(--line-color) 0 var(--line-spacing)
+  );
+  box-shadow: 0 var(--line-width) 0 var(--line-color);
+  opacity: var(--line-opacity);
 }
 
-/* Legend styling */
-.pie-legend {
-  list-style: none;
-  padding: 0;
-  margin: 1rem auto;
-  max-width: 250px;
-  font-size: 0.95rem;
-  text-align: left;
+/* each bar */
+.simple-bar-chart > .item {
+  height: calc(1% * var(--val));
+  background-color: var(--clr, var(--item-default-color));
+  position: relative;
+  animation: item-height 1s ease forwards;
+  transition: transform 220ms cubic-bezier(.22,.61,.36,1), 
+              box-shadow 220ms ease;
+  will-change: transform, box-shadow;
 }
-.pie-legend li {
-  display: flex;
-  align-items: center;
-  margin-bottom: 0.5rem;
+
+/* hover rise-up effect */
+.simple-bar-chart > .item:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 24px rgba(16,20,30,0.15);
 }
-.pie-legend .color {
-  display: inline-block;
-  width: 16px;
-  height: 16px;
-  margin-right: 0.5rem;
-  border-radius: 4px;
+
+/* labels + values */
+.simple-bar-chart > .item > * {
+  position: absolute;
+  text-align: center;
 }
-.pie-legend .aurora { background: #50c878; }
-.pie-legend .benguet { background: #4a90e2; }
-.pie-legend .abra { background: #9b9fe2; }
-.pie-legend .launion { background: #f5c542; }
-.pie-legend .pangasinan { background: #5bc0de; }
+
+.simple-bar-chart > .item > .label {
+  inset: 100% 0 auto 0;
+}
+
+.simple-bar-chart > .item > .value {
+  inset: auto 0 100% 0;
+}
+
+/* height grow animation */
+@keyframes item-height {
+  from { height: 0 }
+}
+/* Container */
+#strategic-goals {
+    text-align: center;
+    margin: 2em auto;
+    max-width: 1100px;
+    padding: 0 1em;
+}
+
+#strategic-goals h2 {
+    font-size: 1.8rem;
+    margin-bottom: 0.5em;
+}
+
+#strategic-goals p {
+    font-size: 1rem;
+    margin-bottom: 2em;
+    color: #555;
+}
+
+/* Goals list */
+#strategic-goals .goals {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+    padding: 0;
+    list-style: none;
+}
+
+/* Goal box styles */
+#strategic-goals .goal-box {
+    flex: 1 1 200px;
+    max-width: 220px;
+    padding: 1.5em 1em;
+    border-radius: 10px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #fff;
+    text-align: center;
+    cursor: pointer;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+/* Smaller text */
+#strategic-goals .goal-box small {
+    display: block;
+    font-size: 0.85rem;
+    margin-top: 0.3em;
+    opacity: 0.9;
+}
+
+/* Hover effects */
+#strategic-goals .goal-box:hover {
+    transform: translateY(-6px) scale(1.03);
+    box-shadow: 0 8px 18px rgba(0,0,0,0.2);
+}
+
+/* Colors */
+.goal-box.style1 { background: #4aa8ff; }
+.goal-box.style2 { background: #65c66f; }
+.goal-box.style3 { background: #f9d442; color: #333; } /* dark text on yellow */
+.goal-box.style4 { background: #9aaee8; }
+.goal-box.style5 { background: #7ec8e3; }
+
+/* Mobile adjustments */
+@media (max-width: 700px) {
+    #strategic-goals h2 {
+        font-size: 1.5rem;
+    }
+    #strategic-goals .goal-box {
+        max-width: 100%;
+        font-size: 1rem;
+        padding: 1.2em;
+    }
+    #strategic-goals .goal-box small {
+        font-size: 0.8rem;
+    }
+}
+/* Mission & Vision Section Layout */
+#mission-vision {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 4rem; /* space between mission and vision */
+    text-align: center;
+    padding: 2rem 1rem;
+}
+
+/* Each column (Mission + Vision) */
+#mission-vision .column {
+    flex: 1;
+    max-width: 500px;
+}
+
+/* Headings */
+#mission-vision h2 {
+    font-size: 1.8rem;
+    margin-bottom: 0.5rem;
+}
+
+/* Gradient underline under headers */
+#mission-vision h2::after {
+    content: "";
+    display: block;
+    width: 60px;
+    height: 3px;
+    margin: 0.5rem auto 1rem;
+    background: linear-gradient(to right, #3a8dde, #4caf50, #fbc02d, #f57c00);
+    border-radius: 2px;
+}
+
+/* Paragraph text */
+#mission-vision p {
+    font-size: 1rem;
+    line-height: 1.6;
+    text-align: justify;
+    color: #444;
+}
+/* Province Stats Box Styling */
+.province-box {
+    display: flex;
+    flex-direction: column;  /* stack text vertically */
+    align-items: center;     /* center horizontally */
+    justify-content: center; /* center vertically */
+    padding: 15px;
+    border-radius: 8px;
+    color: white;
+    font-weight: 600;
+    text-align: center;
+    transition: transform 260ms cubic-bezier(0.22,0.61,0.36,1),
+                box-shadow 260ms cubic-bezier(0.22,0.61,0.36,1);
+    will-change: transform, box-shadow;
+}
+
+/* Hover effect (same style as your features/statistics li) */
+.province-box:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 18px 36px rgba(16,20,30,0.12);
+}
+
+/* Number Styling */
+.province-box .count {
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin-bottom: 4px;  /* space before province name */
+}
+
+/* Province Name Styling */
+.province-box .province {
+    font-size: 0.95rem;
+    opacity: 0.9; /* slightly softer look */
+}

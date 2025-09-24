@@ -33,7 +33,7 @@
 
     /* Images: keep same */
     .spotlight .image img, .image img {
-        width: 100%;
+        width: 70%;
         height: auto;
         border-radius: 10px;
         display: block;
