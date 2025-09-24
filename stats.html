@@ -15,6 +15,7 @@
 
 <body>
 <div id="wrapper">
+
     <!-- Nav -->
     <nav id="nav">
         <ul>
@@ -23,72 +24,88 @@
     </nav>
 
     <div id="main">
+
         <!-- Provinces Section -->
         <section id="provinces" class="main">
             <header class="major">
                 <h2>Provinces We Serve</h2>
-                <p>Rights of the Future extends support to children across Northern Luzon.
-                    Here are glimpses from each province we’ve reached.</p>
+                <p>Rights of the Future extends support to children across Northern Luzon. 
+                   Each province we reach represents thousands of lives uplifted through safety, education, and empowerment.</p>
             </header>
-
+            
             <!-- Individual Province Cards -->
             <div class="province-cards">
                 <div class="province">
                     <img src="styles/assets/images/benguet.png" alt="Children of Benguet">
                     <h3>Benguet</h3>
-                    <p>Over <strong>5,120+</strong> children supported. This is where Rights of the Future began its journey.</p>
+                    <p>Over <strong>5,120+</strong> children supported. This is where Rights of the Future began its journey in Baguio City, now serving as the core hub for outreach.</p>
                 </div>
                 <div class="province">
                     <img src="styles/assets/images/abra.png" alt="Children of Abra">
                     <h3>Abra</h3>
-                    <p><strong>4,096+</strong> children reached. Focused on education and child rights advocacy.</p>
+                    <p><strong>4,096+</strong> children reached. Our programs focus on child rights advocacy, safe learning spaces, and resilience after calamities.</p>
                 </div>
                 <div class="province">
                     <img src="styles/assets/images/launion.png" alt="Children of La Union">
                     <h3>La Union</h3>
-                    <p><strong>2,048+</strong> children supported. Programs expanding through local partnerships.</p>
+                    <p><strong>2,048+</strong> children supported. Partnerships with local groups expand reach to rural barangays, bringing education closer to communities.</p>
                 </div>
                 <div class="province">
                     <img src="styles/assets/images/pangasinan.png" alt="Children of Pangasinan">
                     <h3>Pangasinan</h3>
-                    <p><strong>1,024+</strong> children reached. Initiatives supporting coastal families.</p>
+                    <p><strong>1,024+</strong> children reached. Initiatives focus on coastal families, combining livelihood aid with child protection awareness.</p>
                 </div>
                 <div class="province">
                     <img src="styles/assets/images/aurora.png" alt="Children of Aurora">
                     <h3>Aurora</h3>
-                    <p><strong>8,192+</strong> children helped. Focused on reaching isolated and vulnerable areas.</p>
+                    <p><strong>8,192+</strong> children helped. Known for its remote areas, Aurora is a key focus for reaching isolated and vulnerable children.</p>
                 </div>
             </div>
+        </section>
+
+        <!-- Province Summary Table -->
+        <section id="province-summary" class="main special">
+            <h3>Summary by Province</h3>
+            <table class="province-table">
+              <thead>
+                <tr>
+                  <th>Province</th>
+                  <th>Children Reached</th>
+                  <th>Focus Area</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td>Benguet</td><td>5,120+</td><td>Origin of the project, hub for general support</td></tr>
+                <tr><td>Aurora</td><td>8,192+</td><td>Remote & vulnerable communities</td></tr>
+                <tr><td>La Union</td><td>2,048+</td><td>Programs through local partnerships</td></tr>
+                <tr><td>Abra</td><td>4,096+</td><td>Education & child rights advocacy</td></tr>
+                <tr><td>Pangasinan</td><td>1,024+</td><td>Support for coastal families</td></tr>
+              </tbody>
+            </table>
+            <p class="total-count"><strong>Total Children Reached: 20,480+</strong></p>
         </section>
 
         <!-- Statistics / Graph Section -->
         <section id="province-stats" class="main special">
             <header class="major">
                 <h2>Impact by Province</h2>
-                <p>Below is a comparison of the number of children supported in each province.</p>
+                <p>Visual comparisons help us understand how resources are distributed. Hover over the pie chart below to see the data reveal itself.</p>
             </header>
+
+            <!-- Pie Chart -->
             <div class="stats-graph">
-                <!-- Example: bar graph using simple HTML/CSS -->
-                <div class="bar">
-                    <span>Benguet</span>
-                    <div class="bar-fill" style="width:80%">5,120+</div>
+                <h3>Impact Distribution (Pie Chart)</h3>
+                <div class="pie-wrapper">
+                    <div class="pie-chart"></div>
                 </div>
-                <div class="bar">
-                    <span>Aurora</span>
-                    <div class="bar-fill" style="width:100%">8,192+</div>
-                </div>
-                <div class="bar">
-                    <span>La Union</span>
-                    <div class="bar-fill" style="width:25%">2,048+</div>
-                </div>
-                <div class="bar">
-                    <span>Abra</span>
-                    <div class="bar-fill" style="width:50%">4,096+</div>
-                </div>
-                <div class="bar">
-                    <span>Pangasinan</span>
-                    <div class="bar-fill" style="width:12%">1,024+</div>
-                </div>
+
+                <ul class="pie-legend">
+                    <li><span class="color aurora"></span> Aurora – 40%</li>
+                    <li><span class="color benguet"></span> Benguet – 25%</li>
+                    <li><span class="color abra"></span> Abra – 20%</li>
+                    <li><span class="color launion"></span> La Union – 10%</li>
+                    <li><span class="color pangasinan"></span> Pangasinan – 5%</li>
+                </ul>
             </div>
         </section>
     </div>
@@ -98,16 +115,17 @@
         <section>
             <h2>About Rights of the Future</h2>
             <p>
-                Rights of the Future is more than an initiative it’s a commitment to ensuring every child
-                feels safe, valued, and supported. Together, we can build communities where children
-                can flourish without fear and grow with dignity.
+                Rights of the Future is more than an initiative — it’s a commitment to ensuring every child
+                feels safe, valued, and supported. Together, we build communities where children
+                can flourish without fear and grow with dignity. From disaster relief to education campaigns,
+                our efforts are fueled by students, volunteers, and donors who believe in change.
             </p>
         </section>
         <section>
             <h2>Contact Us</h2>
             <dl class="alt">
                 <dt>Address</dt>
-                <dd>Saint Louis University, Maryheights Campus &bull; Bakakeng Sur, Baguio City &bull; Benguet</dd>
+                <dd>Saint Louis University, Maryheights Campus • Bakakeng Sur, Baguio City • Benguet</dd>
                 <dt>Phone</dt>
                 <dd>(+63) 993-643-7393</dd>
                 <dt>Email</dt>

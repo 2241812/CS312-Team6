@@ -1,5 +1,5 @@
 /* Mobile-first theme overrides (dark mode mobile design) */
-@media (max-width: 735px) {
+@media (max-width: 700px) {
     /* Dark gradient background with light text */
     body {
         background-color: #1a1a1a;

@@ -1,119 +1,229 @@
 /* Section hover/floating rules */
 @media (hover: hover) and (pointer: fine) {
   section.main {
-  transition: transform 320ms cubic-bezier(0.22,0.61,0.36,1), box-shadow 320ms cubic-bezier(0.22,0.61,0.36,1), margin 320ms cubic-bezier(0.22,0.61,0.36,1);
-  will-change: transform, box-shadow, margin;
-  /* ensure lifted shadow and transform are visible outside container */
-  overflow: visible;
+    transition: transform 320ms cubic-bezier(0.22,0.61,0.36,1), 
+                box-shadow 320ms cubic-bezier(0.22,0.61,0.36,1), 
+                margin 320ms cubic-bezier(0.22,0.61,0.36,1);
+    will-change: transform, box-shadow, margin;
+    overflow: visible; /* ensure shadow visible */
   }
   section.main:hover {
-  /* Move visually and in layout to avoid a small gap appearing */
-  transform: translateY(-3px);
-  margin-top: -3px;
-  box-shadow: 5px 15px 10px rgba(16,20,30,0.18);
+    transform: translateY(-3px);
+    margin-top: -3px;
+    box-shadow: 5px 15px 10px rgba(16,20,30,0.18);
   }
 
   .features li, .statistics li {
-  transition: transform 260ms cubic-bezier(0.22,0.61,0.36,1), box-shadow 260ms cubic-bezier(0.22,0.61,0.36,1);
-  will-change: transform, box-shadow;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  line-height: 1;
+    transition: transform 260ms cubic-bezier(0.22,0.61,0.36,1), 
+                box-shadow 260ms cubic-bezier(0.22,0.61,0.36,1);
+    will-change: transform, box-shadow;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    line-height: 1;
   }
-  .features li:hover, .statistics li:hover { transform: translateY(-10px); box-shadow: 0 18px 36px rgba(16,20,30,0.12); }
+  .features li:hover, .statistics li:hover { 
+    transform: translateY(-10px); 
+    box-shadow: 0 18px 36px rgba(16,20,30,0.12); 
+  }
 
-  /* Intro similar to first section */
-  #intro { transition: transform 320ms cubic-bezier(0.22,0.61,0.36,1), box-shadow 320ms cubic-bezier(0.22,0.61,0.36,1); }
-  #intro:hover { transform: translateY(-14px); box-shadow: 0 24px 48px rgba(16,20,30,0.18); }
+  #intro { 
+    transition: transform 320ms cubic-bezier(0.22,0.61,0.36,1), 
+                box-shadow 320ms cubic-bezier(0.22,0.61,0.36,1); 
+  }
+  #intro:hover { 
+    transform: translateY(-14px); 
+    box-shadow: 0 24px 48px rgba(16,20,30,0.18); 
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  section.main, section.main:hover, .features li, .statistics li, #intro, #intro:hover { transform: none !important; box-shadow: none !important; transition: none !important; }
+  section.main, section.main:hover, 
+  .features li, .statistics li, 
+  #intro, #intro:hover { 
+    transform: none !important; 
+    box-shadow: none !important; 
+    transition: none !important; 
+  }
 }
 
 /* Province Cards */
 .province-cards {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 2rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
 }
-
 .province img {
-    width: 100%;
-    border-radius: 10px;
-    margin-bottom: 0.75rem;
+  width: 100%;
+  border-radius: 10px;
+  margin-bottom: 0.75rem;
 }
 
-/* Video-hover utility: show a placeholder video when the image is hovered (no JS) */
+/* Video-hover utility */
 .video-hover {
-    position: relative;
-    display: inline-block;
-    overflow: hidden;
-    border-radius: 10px;
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
+  border-radius: 10px;
 }
 .video-hover img {
-    display: block;
-    width: 100%;
-    height: auto;
-    transition: opacity 320ms cubic-bezier(0.22,0.61,0.36,1);
+  display: block;
+  width: 100%;
+  height: auto;
+  transition: opacity 320ms cubic-bezier(0.22,0.61,0.36,1);
 }
 .video-hover .hover-video {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    opacity: 0;
-    pointer-events: none; /* let hover be detected on container */
-    transition: opacity 320ms cubic-bezier(0.22,0.61,0.36,1);
-    will-change: opacity;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 320ms cubic-bezier(0.22,0.61,0.36,1);
+  will-change: opacity;
 }
-
-/* On hover (or focus-within for keyboard users) show the video and dim the image */
 .video-hover:hover img,
-.video-hover:focus-within img {
-    opacity: 0.08;
-}
+.video-hover:focus-within img { opacity: 0.08; }
 .video-hover:hover .hover-video,
-.video-hover:focus-within .hover-video {
-    opacity: 1;
-}
+.video-hover:focus-within .hover-video { opacity: 1; }
 
 @media (prefers-reduced-motion: reduce) {
-    .video-hover img,
-    .video-hover .hover-video { transition: none !important; }
+  .video-hover img,
+  .video-hover .hover-video { transition: none !important; }
 }
 
 /* Graph Section */
 .stats-graph {
-    width: 100%;
-    max-width: 700px;
-    margin: 0 auto;
-    text-align: left;
+  width: 100%;
+  max-width: 700px;
+  margin: 0 auto;
+  text-align: left;
 }
-
 .bar {
-    background: #f0f0f0;
-    margin: 0.75rem 0;
-    border-radius: 8px;
-    overflow: hidden;
-    position: relative;
+  background: #f0f0f0;
+  margin: 0.75rem 0;
+  border-radius: 8px;
+  overflow: hidden;
+  position: relative;
 }
-
 .bar span {
-    display: inline-block;
-    padding: 0.5rem;
-    font-weight: bold;
-    color: #333;
+  display: inline-block;
+  padding: 0.5rem;
+  font-weight: bold;
+  color: #333;
+}
+.bar-fill {
+  display: inline-block;
+  padding: 0.5rem;
+  color: #fff;
+  background: linear-gradient(90deg, #4DA6FF, #6BCB77);
+  font-weight: 600;
 }
 
-.bar-fill {
-    display: inline-block;
-    padding: 0.5rem;
-    color: #fff;
-    background: linear-gradient(90deg, #4DA6FF, #6BCB77);
-    font-weight: 600;
+/* Province Summary Table */
+.province-table {
+  width: 90%;
+  max-width: 800px;
+  margin: 2rem auto;
+  border-collapse: collapse;
+  font-size: 1rem;
+  text-align: left;
+  background: #fff;
+  color: #333;
+  border-radius: 8px;
+  overflow: hidden;
 }
+.province-table th, .province-table td {
+  padding: 12px 16px;
+  border-bottom: 1px solid #ddd;
+}
+.province-table th {
+  background: #4DA6FF;
+  color: #fff;
+  font-weight: bold;
+}
+.province-table tr:nth-child(even) { background: #f9f9f9; }
+.province-table tr:hover { background: #eaf6ff; }
+
+.total-count {
+  margin-top: 1rem;
+  text-align: center;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #6BCB77;
+}
+
+/* ================= PIE CHART ================= */
+.pie-wrapper {
+  position: relative;
+  width: 250px;
+  height: 250px;
+  margin: 2rem auto;
+  cursor: pointer;
+}
+.pie-chart {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: conic-gradient(
+    #50c878 0% 40%,     /* Aurora */
+    #4a90e2 40% 65%,    /* Benguet */
+    #9b9fe2 65% 85%,    /* Abra */
+    #f5c542 85% 95%,    /* La Union */
+    #5bc0de 95% 100%    /* Pangasinan */
+  );
+  transform: rotate(-90deg); /* start at top */
+}
+/* White overlay that sweeps away on hover */
+.pie-wrapper::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: #f9f9f9; /* match background */
+  transform-origin: center;
+  clip-path: polygon(50% 50%, 100% 50%, 100% 50%);
+}
+.pie-wrapper:hover::before {
+  animation: sweep 2.5s ease-out forwards;
+}
+@keyframes sweep {
+  from {
+    transform: rotate(0deg);
+    clip-path: polygon(50% 50%, 100% 50%, 100% 50%);
+  }
+  to {
+    transform: rotate(360deg);
+    clip-path: polygon(50% 50%, 100% 50%, 100% 0, 0 0, 0 100%, 100% 100%);
+  }
+}
+
+/* Legend styling */
+.pie-legend {
+  list-style: none;
+  padding: 0;
+  margin: 1rem auto;
+  max-width: 250px;
+  font-size: 0.95rem;
+  text-align: left;
+}
+.pie-legend li {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+.pie-legend .color {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  margin-right: 0.5rem;
+  border-radius: 4px;
+}
+.pie-legend .aurora { background: #50c878; }
+.pie-legend .benguet { background: #4a90e2; }
+.pie-legend .abra { background: #9b9fe2; }
+.pie-legend .launion { background: #f5c542; }
+.pie-legend .pangasinan { background: #5bc0de; }
