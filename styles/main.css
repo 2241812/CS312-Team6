@@ -2230,10 +2230,6 @@ input, select, textarea {
 			display: none;
 		}
 
-		.icon:before {
-			line-height: solid;
-		}
-
 		.icon.solid:before {
 			font-weight: 900;
 		}
