@@ -3562,7 +3562,7 @@ body.is-preload #header.alt .logo {
 			#main input[type="button"].primary,
 			#main button.primary,
 			#main .button.primary {
-				background-color: #8cc9f0;
+				background-color: white;
 				color: black !important;
 				box-shadow: 1px 1px 1px rgb(164, 163, 163);
 			}
@@ -3572,7 +3572,8 @@ body.is-preload #header.alt .logo {
 				#main input[type="button"].primary:hover,
 				#main button.primary:hover,
 				#main .button.primary:hover {
-					background-color: #68b6ea;
+					background-color: rgb(187, 187, 187);
+					color: black !important;
 				}
 
 #main input[type="submit"].primary:active,
