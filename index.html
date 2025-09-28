@@ -1,5 +1,6 @@
 <!DOCTYPE HTML>
 <html lang="en">
+
 <head>
     <title>Rights of the Future</title>
     <meta charset="utf-8">
@@ -21,13 +22,16 @@
       }
     </style>
 
-    <noscript><link rel="stylesheet" href="styles/noscript.css"></noscript>
+    <noscript>
+        <link rel="stylesheet" href="styles/noscript.css">
+    </noscript>
 </head>
 
 <body>
     <!-- Header -->
     <header id="header" class="alt">
-        <video autoplay muted loop class="back-video" src="/styles/assets/videos/kidsReel.mp4"></video>
+        <video autoplay muted loop src="/styles/assets/Videos/kidsReel.mp4" class="back-video"></video>
+        
         <div class="vid-contain"></div>
 
         <span class="logo header-logo animate-on-load stagger-1">
@@ -53,10 +57,12 @@
         </ul>
     </nav>
 
-    <!-- Wrapper -->
     <div id="wrapper-bg">
-    <div id="wrapper">
-        <main id="main">
+        <!-- Wrapper -->
+        <div id="wrapper">
+
+            <!-- Main -->
+            <div id="main">
 
             <!-- Impact Section -->
             <section id="impact" class="main special">
@@ -180,20 +186,39 @@
                 </ul>
             </section>
 
-            <!-- Get Involved -->
-            <section id="get-involved" class="main special">
-                <header class="major">
-                    <h2>Help Our Cause</h2>
-                    <p>There are many ways to support Rights of the Future and make a lasting difference in a child’s life.</p>
-                </header>
-                <ul class="features">
-                    <li><a href="report.html"><h3>Report an Incident</h3><p>Raise awareness and help us protect children by reporting cases of abuse or neglect.</p></a></li>
-                    <li><a href="donate.html"><h3>Donate to the Kids</h3><p>Your contributions fund educational programs, shelter, and essentials for children in need.</p></a></li>
-                    <li><a href="community.html"><h3>Be Part of the Community</h3><p>Join us as a volunteer, advocate, or partner, and be part of the change for children’s rights.</p></a></li>
-                </ul>
-            </section>
+                 <section id="get-involved" class="main special vid-on-hover">
+                    <video autoplay muted loop src="styles/assets/Videos/theCause.mp4" class="hover-video"></video>
+                    <header class="major">
+                        <span>
+                            <h2>Help Our Cause</h2>
+                            <p>There are many ways to support Rights of the Future and make a lasting difference in a
+                                child’s life.</p>
+                        </span>
 
-        </main>
+                    </header>
+
+                    <ul class="features special">
+                        <li>
+                            <a href="report.html">
+                                <img src="styles/assets/images/megaphone.png" alt="Report Icon">
+                                <h3>Report an Incident</h3>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="donate.html">
+                                <img src="styles/assets/images/donate.svg" alt="Donate Icon" style="width: 4rem; height: 4rem;">
+                                <h3>Donate to the Kids</h3>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="community.html">
+                                <img src="styles/assets/images/people.png" alt="Community Icon" style="width: 5rem; height: 5rem;">
+                                <h3>Be Part of the Community</h3>
+                            </a>
+                        </li>
+                    </ul>
+                </section>
+            </div>
 
         <!-- Footer -->
         <footer id="footer">
@@ -226,4 +251,5 @@
     </div>
     </div>
 </body>
+
 </html>
