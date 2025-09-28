@@ -4,7 +4,9 @@
 <head>
     <title>Rights of the Future</title>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=3.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Stylesheets -->
     <link rel="stylesheet" href="styles/main.css">
     <link rel="stylesheet" href="styles/fontawesome-all.min.css">
     <link rel="stylesheet" href="styles/animations.css">
@@ -12,30 +14,45 @@
     <link rel="stylesheet" href="styles/nav.css">
     <link rel="stylesheet" href="styles/mobile.css">
     <link rel="icon" href="styles/assets/images/logo.png">
+
+    <style>
+      /* Fix for nav offset when scrolling to sections */
+      section {
+        scroll-margin-top: 80px; /* adjust based on nav/header height */
+      }
+    </style>
+
     <noscript>
         <link rel="stylesheet" href="styles/noscript.css">
     </noscript>
 </head>
 
 <body>
+    <!-- Header -->
     <header id="header" class="alt">
         <video autoplay muted loop src="/styles/assets/Videos/kidsReel.mp4" class="back-video"></video>
-
+        
         <div class="vid-contain"></div>
 
-        <span class="logo header-logo animate-on-load stagger-1"><img src="styles/assets/images/logo.png"
-                alt="Rights of the Future Logo" style="height: 50%; width: 50%;"></span>
+        <span class="logo header-logo animate-on-load stagger-1">
+            <img src="styles/assets/images/logo.png" alt="Rights of the Future Logo" style="height: 30%; width: 30%;">
+        </span>
         <h1 class="header-text animate-on-load stagger-2">Rights of the Future</h1>
-        <p class="header-sub animate-on-load stagger-3">A student-led initiative for children’s safety, growth, and
-            empowerment</p>
+        <p class="header-sub animate-on-load stagger-3">
+            A student-led initiative for children’s safety, growth, and empowerment
+        </p>
     </header>
 
-    <!-- Nav -->
+    <!-- Navigation -->
     <nav id="nav">
         <ul>
             <li><a href="#header">Home</a></li>
-            <li><a href="#mission-vision">Mission & Vision</a></li>
             <li><a href="#impact">Our Impact</a></li>
+            <li><a href="#mission-vision">Mission & Vision</a></li>
+            <li><a href="#core-values">Core Values</a></li>
+            <li><a href="#strategic-goals">Strategic Goals</a></li>
+            <li><a href="#success-stories">Success Stories</a></li>
+            <li><a href="#challenges">Challenges</a></li>
             <li><a href="#get-involved">Get Involved</a></li>
         </ul>
     </nav>
@@ -47,70 +64,129 @@
             <!-- Main -->
             <div id="main">
 
-                <!-- Impact Section -->
-                <section id="impact" class="main special">
-                    <header class="major">
-                        <span>
-                            <h2>Children Reached by Provinces</h2>
-                            <p>Rights of the Future continues to expand its reach throughout the Philippines.</p>
-                        </span>
-                    </header>
-                    <ul class="statistics">
-                        <li class="style1">
-                            <span class="icon solid fa-code-branch"></span>
-                            <strong>5,120</strong> Benguet
-                        </li>
-                        <li class="style2">
-                            <span class="icon fa-folder-open"></span>
-                            <strong>8,192</strong> Aurora
-                        </li>
-                        <li class="style3">
-                            <span class="icon solid fa-signal"></span>
-                            <strong>2,048</strong> La Union
-                        </li>
-                        <li class="style4">
-                            <span class="icon solid fa-laptop"></span>
-                            <strong>4,096</strong> Abra
-                        </li>
-                        <li class="style5">
-                            <span class="icon fa-gem"></span>
-                            <strong>1,024</strong> Pangasinan
-                        </li>
+            <!-- Impact Section -->
+            <section id="impact" class="main special">
+                <header class="major">
+                    <h2>Children Reached by Provinces</h2>
+                    <p>Rights of the Future continues to expand its reach throughout the Philippines.</p>
+                </header>
+                <ul class="statistics">
+                    <li class="style1"><span class="icon solid fa-code-branch"></span><strong>5,120</strong> Benguet</li>
+                    <li class="style2"><span class="icon fa-folder-open"></span><strong>8,192</strong> Aurora</li>
+                    <li class="style3"><span class="icon solid fa-signal"></span><strong>2,048</strong> La Union</li>
+                    <li class="style4"><span class="icon solid fa-laptop"></span><strong>4,096</strong> Abra</li>
+                    <li class="style5"><span class="icon fa-gem"></span><strong>1,024</strong> Pangasinan</li>
+                </ul>
+                <p class="content">
+                    Rights of the Future began in Baguio City, where a group of dedicated students from
+                    Saint Louis University recognized the urgent need to protect and empower children.
+                    What started as a small community project quickly grew into a movement, reaching
+                    thousands of children across different provinces in Northern Luzon, and continuing
+                    to expand nationwide.
+                </p>
+                <footer class="major">
+                    <ul class="actions special">
+                        <li><a href="stats.html" class="button">Learn More</a></li>
                     </ul>
-                    <p class="content">
-                        Rights of the Future began in Baguio City, where a group of dedicated students from
-                        Saint Louis University recognized the urgent need to protect and empower children.
-                        What started as a small community project quickly grew into a movement, reaching
-                        thousands of children across different provinces in Northern Luzon, and continuing
-                        to expand nationwide.
+                </footer>
+            </section>
+
+            <!-- Mission & Vision -->
+            <section id="mission-vision" class="main special">
+                <div class="column">
+                    <h2>Our Mission</h2>
+                    <p>
+                    To safeguard, nurture, and uplift every child in the Philippines by ensuring
+                    they are protected from harm, empowered with education, and supported in
+                    their growth—physically, emotionally, socially, and ethically.
                     </p>
-                    <footer class="major">
-                        <ul class="actions special">
-                            <li><a href="stats.html" class="button">Learn More</a></li>
-                        </ul>
-                    </footer>
-                </section>
+                </div>
 
-                <!-- Mission & Vision Section -->
-                <section id="mission-vision" class="main special">
-                    <header class="major special">
-                        <span>
-                            <h2>Our Mission</h2>
-                            <p>To create a safe, inclusive, and nurturing environment where children are protected,
-                                supported,
-                                and empowered to reach their fullest potential.</p>
-                        </span>
-                        <span>
-                            <h2>Our Vision</h2>
-                            <p>A future where every child has equal access to safety, education, and opportunities to
-                                thrive,
-                                no matter their background or circumstances.</p>
-                        </span>
-                    </header>
-                </section>
+                <div class="column">
+                    <h2>Our Vision</h2>
+                    <p>
+                    A future where every child—regardless of circumstance—is safe, heard,
+                    valued, and equipped to shape their own destiny. We envision vibrant
+                    communities across the country where children have full access to their
+                    rights.
+                    </p>
+                </div>
+            </section>
+            
+            <!-- Core Values -->
+            <section id="core-values" class="main special">
+                <header class="major"><h2>Our Core Values</h2></header>
+                <ul class="features">
+                    <li><h3>Child-Centeredness</h3><p>Every decision begins with the child’s best interests.</p></li>
+                    <li><h3>Inclusivity & Equity</h3><p>Breaking barriers so every child has equal opportunities.</p></li>
+                    <li><h3>Empowerment & Participation</h3><p>Children are not just beneficiaries; they are partners in change.</p></li>
+                    <li><h3>Holistic Growth</h3><p>Supporting education, health, safety, and emotional well-being together.</p></li>
+                    <li><h3>Integrity & Transparency</h3><p>Accountable use of resources and open reporting of results.</p></li>
+                    <li><h3>Collaboration</h3><p>Partnering with communities, schools, and governments for lasting impact.</p></li>
+                </ul>
+            </section>
 
-                <!-- Get Involved Section -->
-                <section id="get-involved" class="main special vid-on-hover">
+            <!-- Strategic Goals -->
+            <section id="strategic-goals" class="main special">
+            <header class="major">
+                <h2>Strategic Goals</h2>
+                <p>Our roadmap for the coming years is built on growth, sustainability, and deeper impact.</p>
+            </header>
+
+            <ul class="statistics">
+                <li class="style1" style="text-align:center;">
+                <span class="icon solid fa-code-branch"></span>
+                Visayas &amp; Mindanao (2027)
+                </li>
+
+                <li class="style2" style="text-align:center;">
+                <span class="icon fa-folder-open"></span>
+                10 barangays (2026)
+                </li>
+
+                <li class="style3" style="text-align:center;">
+                <span class="icon solid fa-signal"></span>
+                5 district hotlines (2025)
+                </li>
+
+                <li class="style4" style="text-align:center;">
+                <span class="icon solid fa-laptop"></span>
+                Health &amp; nutrition (2024)
+                </li>
+
+                <li class="style5" style="text-align:center;">
+                <span class="icon fa-gem"></span>
+                Leaders &amp; volunteers (2023)
+                </li>
+            </ul>
+            </section>
+
+
+            <!-- Success Stories -->
+            <section id="success-stories" class="main special">
+                <header class="major"><h2>Success Stories</h2></header>
+                <p>Our work is already creating meaningful change in communities across Northern Luzon.</p>
+                <ul class="features">
+                    <li><h3>Abra</h3><p>500 children improved literacy through our “Reading & Play” program in 6 months.</p></li>
+                    <li><h3>Aurora</h3><p>Community advocacy secured safer school routes and shaded spaces for play.</p></li>
+                    <li><h3>Pangasinan</h3><p>Mentorship program helped several students secure scholarships for university and vocational training.</p></li>
+                </ul>
+            </section>
+
+            <!-- Challenges -->
+            <section id="challenges" class="main special">
+                <header class="major"><h2>Challenges We Face</h2></header>
+                <p>
+                    Our mission is not without its hurdles. Geographical isolation, limited resources, socio-cultural barriers, and underfunding remain challenges. Yet, through innovation and partnerships, we continue to push forward:
+                </p>
+                <ul class="features">
+                    <li><h3>Mobile Outreach</h3><p>Bringing learning and child protection services to remote areas.</p></li>
+                    <li><h3>Community Workshops</h3><p>Raising awareness and building capacity among families and local leaders.</p></li>
+                    <li><h3>Technology for Inclusion</h3><p>Leveraging digital tools to connect children with resources and mentors.</p></li>
+                </ul>
+            </section>
+
+                 <section id="get-involved" class="main special vid-on-hover">
                     <video autoplay muted loop src="styles/assets/Videos/theCause.mp4" class="hover-video"></video>
                     <header class="major">
                         <span>
@@ -144,34 +220,35 @@
                 </section>
             </div>
 
-
-            <!-- Footer -->
-            <footer id="footer">
-                <section>
-                    <h2>About Rights of the Future</h2>
-                </section>
-                <section>
-                    <h2>Contact Us</h2>
-                    <dl class="alt">
-                        <dt>Address</dt>
-                        <dd>Saint Louis University, Maryheights Campus &bull; Bakakeng Sur, Baguio City &bull; Benguet
-                        </dd>
-                        <dt>Phone</dt>
-                        <dd>(+63) 993-643-7393</dd>
-                        <dt>Email</dt>
-                        <dd><a href="mailto:rightsofthefuture@gmail.com">rightsofthefuture@gmail.com</a></dd>
-                    </dl>
-                    <ul class="icons">
-                        <li><a href="#" class="icon brands fa-twitter alt"><span class="label">Twitter</span></a></li>
-                        <li><a href="#" class="icon brands fa-facebook-f alt"><span class="label">Facebook</span></a>
-                        </li>
-                        <li><a href="#" class="icon brands fa-instagram alt"><span class="label">Instagram</span></a>
-                        </li>
-                    </ul>
-                </section>
-                <p class="copyright">&copy; Rights of the Future 2025. All rights reserved.</p>
-            </footer>
-        </div>
+        <!-- Footer -->
+        <footer id="footer">
+            <section>
+                <h2>About Rights of the Future</h2>
+                <p>
+                    Rights of the Future is more than an initiative—it’s a commitment to ensuring every child
+                    feels safe, valued, and supported. Together, we can build communities where children
+                    can flourish without fear and grow with dignity.
+                </p>
+            </section>
+            <section>
+                <h2>Contact Us</h2>
+                <dl class="alt">
+                    <dt>Address</dt>
+                    <dd>Saint Louis University, Maryheights Campus • Bakakeng Sur, Baguio City • Benguet</dd>
+                    <dt>Phone</dt>
+                    <dd>(+63) 993-643-7393</dd>
+                    <dt>Email</dt>
+                    <dd><a href="mailto:rightsofthefuture@gmail.com">rightsofthefuture@gmail.com</a></dd>
+                </dl>
+                <ul class="icons">
+                    <li><a href="#" class="icon brands fa-twitter alt"><span class="label">Twitter</span></a></li>
+                    <li><a href="#" class="icon brands fa-facebook-f alt"><span class="label">Facebook</span></a></li>
+                    <li><a href="#" class="icon brands fa-instagram alt"><span class="label">Instagram</span></a></li>
+                </ul>
+            </section>
+            <p class="copyright">&copy; Rights of the Future 2025. All rights reserved.</p>
+        </footer>
+    </div>
     </div>
 </body>
 
