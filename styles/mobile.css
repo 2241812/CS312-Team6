@@ -1,99 +1,232 @@
-/* Mobile-first theme overrides (dark mode mobile design) */
-@media (max-width: 700px) {
-    /* Dark gradient background with light text */
-    body {
-        background-color: #1a1a1a;
-        background-image: url("assets/images/overlay.png"),
-        linear-gradient(45deg, #2c1e3f 15%, #162038 85%);
-        color: black;
+/* ===========================================================
+   Mobile-first Lavender Theme Overrides
+   Ensures overrides for all other CSS files
+   =========================================================== */
+@media (max-width: 900px) {
+
+    /* ----------------------
+       Color Palette
+    ---------------------- */
+    :root {
+        --lav-100: #fdfbff;   /* almost white lavender */
+        --lav-200: #f6f0ff;   /* pale lavender */
+        --lav-300: #e6e6fa;   /* classic lavender */
+        --lav-400: #d8bfd8;   /* thistle */
+        --lav-500: #dda0dd;   /* plum */
+        --lav-600: #ba55d3;   /* medium orchid */
+        --lav-700: #9370db;   /* medium purple */
+        --lav-800: #6a0dad;   /* amethyst */
+        --lav-900: #4b0082;   /* indigo (for contrast) */
+
+        --text: #4b0082;
+        --heading: #6a0dad;
+        --card-bg: #f0e6ff;
+        --accent: #9370db;
     }
 
-    /* Base type */
+    /* ----------------------
+       Base
+    ---------------------- */
+    html, body {
+        background-color: var(--lav-400) !important;
+        background-image: linear-gradient(
+                180deg,
+                var(--lav-200) 0%,
+                var(--lav-300) 40%,
+                var(--lav-100) 100%
+        ) !important;
+        color: var(--text) !important;
+        font-size: 1.05rem !important;
+        line-height: 1.6 !important;
+    }
+
     body, input, select, textarea {
-        font-size: 1.05rem;
-        line-height: 1.6;
-        color: black;
-        background-color: #222; /* darker form background */
+        color: var(--text) !important;
+        background-color: var(--lav-100) !important;
     }
 
-    /* Headings: bright for contrast */
-    h1 { font-size: 2rem; color: #ffffff; }
-    h2 { font-size: 1.5rem; color: #e0e0e0; }
-
-    /* Sections: dark cards over dark gradient */
-    section.main {
-        margin: 0.75rem 0.75rem;
-        padding: 1rem;
-        border-radius: 14px;
-        background: rgba(255,255,255,0.06); /* slightly lighter overlay */
-        box-shadow: 0 8px 24px rgba(0,0,0,0.5);
-        color: black;
-        text-align: center;
+    /* ----------------------
+       Headings
+    ---------------------- */
+    h1 {
+        font-size: 2rem !important;
+        color: var(--lav-800) !important;
+    }
+    h2 {
+        font-size: 1.5rem !important;
+        color: var(--lav-700) !important;
+    }
+    h3, h4, h5, h6 {
+        color: var(--heading) !important;
     }
 
-    /* Images: keep same */
-    .spotlight .image img, .image img {
-        width: 70%;
-        height: auto;
-        border-radius: 10px;
-        display: block;
+    /* ----------------------
+       Sections / Cards
+    ---------------------- */
+    section, .section, .main, .card, .panel {
+        background: var(--card-bg) !important;
+        color: var(--text) !important;
+        border-radius: 14px !important;
+        padding: 1rem !important;
+        box-shadow: 0 8px 24px rgba(147, 112, 219, 0.25) !important;
+        border: 1px solid var(--lav-300) !important;
     }
 
-    /* Center blocks */
-    .spotlight .content, header.major, .features, .statistics {
-        text-align: center;
+    /* ----------------------
+       Links / Buttons
+    ---------------------- */
+    a, button {
+        color: var(--accent) !important;
+        background: transparent !important;
+        border: none !important;
     }
-    .features li, .statistics li {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        text-align: center;
+    a:hover, button:hover {
+        color: var(--lav-800) !important;
     }
 
-    /* Buttons: neon/accent for dark mode */
-    .button, button, input[type="submit"], .actions .button {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        padding: 0.8rem 1.1rem;
-        border-radius: 999px;
-        background: linear-gradient(90deg,#6a5acd,#00bcd4);
-        color: black !important;
+    /* ----------------------
+       Header / Footer / Nav
+    ---------------------- */
+    nav, header, footer {
+        background-color: var(--lav-200) !important;
+        color: var(--text) !important;
+        border: none !important;
+        box-shadow: none !important;
+    }
+
+    /* ----------------------
+       Logo / Images / SVG
+    ---------------------- */
+    .logo, .site-logo, .brand, .logo-container {
+        background: transparent !important;
+        box-shadow: none !important;
+        border: none !important;
+    }
+
+    .logo img,
+    .site-logo img,
+    header img,
+    .brand img,
+    .logo-container img {
+        background: transparent !important;
+        background-color: transparent !important;
+        box-shadow: none !important;
+        border: none !important;
+    }
+
+    .logo svg > rect,
+    .site-logo svg > rect {
+        fill: transparent !important;
+        stroke: none !important;
+    }
+
+    /* ----------------------
+       Utilities
+    ---------------------- */
+    .text-center { text-align: center !important; }
+    .bg-transparent { background: transparent !important; }
+
+
+    #wrapper,
+    #wrapper-bg {
+        background: none !important;           /* clears both color & image */
+        background-color: transparent !important;
+        background-image: none !important;
+        box-shadow: none !important;
+    }
+
+    /* If you want wrapper sections to have lavender but NOT block video,
+       apply only to non-video sections */
+    #wrapper:not(.video),
+    #wrapper-bg:not(.video) {
+        background: var(--lav-100) !important;
+    }
+
+    /* ----------------------
+       Statistics List Accent
+    ---------------------- */
+    ul.statistics li,
+    ul.stats li {
+        border-radius: 12px !important;
+        padding: 1rem !important;
         font-weight: 600;
-        box-shadow: 0 10px 30px rgba(0,188,212,0.25);
-        line-height: 1;
+        box-shadow: 0 4px 12px rgba(106, 13, 173, 0.25) !important;
     }
 
-    /* Links: bright teal/blue accent */
-    a { color: #5ad4ff; }
+    ul.statistics li:nth-child(1) { background: #ede7f6 !important; color: #4b0082 !important; }
+    ul.statistics li:nth-child(2) { background: #e1bee7 !important; color: #311b92 !important; }
+    ul.statistics li:nth-child(3) { background: #d1c4e9 !important; color: #4a148c !important; }
+    ul.statistics li:nth-child(4) { background: #c5cae9 !important; color: #1a237e !important; }
 
-    /* Footer */
-    #footer {
-        margin: 1.25rem 0 2rem 0;
-        padding: 1rem;
-        background: rgba(255,255,255,0.04);
-        color: rgba(230,230,230,0.9);
+    ul.statistics li strong {
+        font-size: 1.4rem;
+        color: #6a0dad !important;
     }
 
-    /* Nav links: brighter */
-    #nav ul li a {
-        font-size: 1.05rem;
-        padding: 0.95rem 1rem;
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        line-height: 1;
-        color: #e0e0e0;
+    /* ----------------------
+       Goals List Accent
+    ---------------------- */
+    ul.goals {
+        list-style: none !important;
+        margin: 0;
+        padding: 0;
     }
 
-    /* Slightly reduce entrance animation */
-    .animate-on-load { animation-duration: 560ms; }
+    ul.goals li {
+        background: #f0e6ff !important;
+        color: #4b0082 !important;
+        border: 1px solid #d8bfd8 !important;
+        border-radius: 10px !important;
+        padding: 0.75rem 1rem !important;
+        margin: 0.5rem 0 !important;
+        box-shadow: 0 4px 12px rgba(147, 112, 219, 0.25) !important;
+    }
 
-    @media (prefers-reduced-motion: reduce) {
-        .animate-on-load { animation: none !important; transition: none !important; }
+    ul.goals li:nth-child(odd) {
+        background: #ede7f6 !important;
+    }
+
+    ul.goals li strong {
+        color: #6a0dad !important;
+    }
+
+    /* ----------------------
+       Major Header
+    ---------------------- */
+    header.major,
+    .major {
+        background: transparent !important;
+        color: var(--heading) !important;
+        border: none !important;
+    }
+
+    header.major h1,
+    header.major h2,
+    .major h1,
+    .major h2 {
+        color: var(--lav-800) !important;
+    }
+
+    header.major p,
+    .major p {
+        color: var(--lav-700) !important;
+    }
+
+    /* ----------------------
+       H2 Gradient Bar (after, not before)
+    ---------------------- */
+    h2:after {
+        background: linear-gradient(
+                90deg,
+                #d8bfd8,
+                #ba55d3,
+                #9370db
+        ) !important;
+        content: "";
+        display: block;
+        height: 4px;
+        width: 50%;
+        margin: 0.5rem auto 1rem auto;
+        border-radius: 2px;
     }
 }
-
-/* Non-mobile */
-@media (min-width: 736px) { }
