@@ -2767,6 +2767,10 @@ header.major {
 	margin-bottom: 3em;
 }
 
+header.major.left{
+	text-align: left;
+}
+
 header.major h2 {
 	font-size: 2em;
 }
@@ -3856,6 +3860,27 @@ body.is-preload #header.alt .logo {
 	z-index: 0;
 	object-fit: cover;
 	background-color: rgba(222, 222, 222, 0.5);
+}
+
+.back-img{
+	position: absolute;
+	overflow: hidden;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: -1;
+	object-fit: cover;
+}
+
+@media screen and (max-aspect-ratio: 16/9) {
+	.back-video {
+		width: 177.77dvw;
+		height: 100dvh;
+		left: 50%;
+		top: 0;
+		transform: translateX(-50%);
+	}
 }
 
 .hover-video {
