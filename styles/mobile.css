@@ -1,99 +1,145 @@
-/* Mobile-first theme overrides (dark mode mobile design) */
+/* Radical Mobile-Only Theme (Revised) */
 @media (max-width: 700px) {
-    /* Dark gradient background with light text */
-    body {
-        background-color: #1a1a1a;
-        background-image: url("assets/images/overlay.png"),
-        linear-gradient(45deg, #2c1e3f 15%, #162038 85%);
-        color: black;
-    }
 
-    /* Base type */
-    body, input, select, textarea {
-        font-size: 1.05rem;
-        line-height: 1.6;
-        color: black;
-        background-color: #222; /* darker form background */
-    }
+  body {
+    background: #f5f5f5;
+    color: #222;
+    font-family: "Segoe UI", Arial, sans-serif;
+    font-size: 1.05rem;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+  }
 
-    /* Headings: bright for contrast */
-    h1 { font-size: 2rem; color: #ffffff; }
-    h2 { font-size: 1.5rem; color: #e0e0e0; }
+  /* Header: keep video visible */
+  #header {
+    position: relative;
+    text-align: center;
+    padding: 2rem 1rem;
+    overflow: hidden;
+  }
+  #header .back-video {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1; /* stays behind everything */
+  }
+  #header .vid-contain {
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: linear-gradient(135deg, rgba(255,111,97,0.8), rgba(255,179,71,0.8));
+    z-index: -1;
+  }
+  #header .logo img {
+    width: 90px;
+    height: auto;
+    margin-bottom: 1rem;
+  }
+  #header h1 {
+    font-size: 1.8rem;
+    color: #fff;
+  }
+  #header p {
+    font-size: 1rem;
+    color: #ffece5;
+  }
 
-    /* Sections: dark cards over dark gradient */
-    section.main {
-        margin: 0.75rem 0.75rem;
-        padding: 1rem;
-        border-radius: 14px;
-        background: rgba(255,255,255,0.06); /* slightly lighter overlay */
-        box-shadow: 0 8px 24px rgba(0,0,0,0.5);
-        color: black;
-        text-align: center;
-    }
+  /* Navigation stays bottom bar */
+  #nav {
+    position: fixed;
+    bottom: 0;
+    left: 0; right: 0;
+    background: #fff;
+    border-top: 1px solid #ddd;
+    z-index: 1000;
+  }
+  #nav ul {
+    display: flex;
+    justify-content: space-around;
+    margin: 0;
+    padding: 0.5rem 0;
+    list-style: none;
+  }
+  #nav ul li a {
+    font-size: 0.9rem;
+    color: #444;
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  #nav ul li a:hover {
+    color: #ff6f61;
+  }
 
-    /* Images: keep same */
-    .spotlight .image img, .image img {
-        width: 70%;
-        height: auto;
-        border-radius: 10px;
-        display: block;
-    }
+  /* Sections as cards */
+  section.main {
+    background: #fff;
+    margin: 1rem;
+    padding: 1.25rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    text-align: left;
+  }
+  section.main h2 {
+    font-size: 1.4rem;
+    margin-bottom: 0.5rem;
+    color: #ff6f61;
+  }
 
-    /* Center blocks */
-    .spotlight .content, header.major, .features, .statistics {
-        text-align: center;
-    }
-    .features li, .statistics li {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        text-align: center;
-    }
+  /* Statistics & Features stacked */
+  .statistics, .features {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  .statistics li, .features li {
+    background: #fafafa;
+    padding: 0.75rem;
+    border-radius: 8px;
+    text-align: left;
+    font-size: 0.95rem;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+  }
 
-    /* Buttons: neon/accent for dark mode */
-    .button, button, input[type="submit"], .actions .button {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        padding: 0.8rem 1.1rem;
-        border-radius: 999px;
-        background: linear-gradient(90deg,#6a5acd,#00bcd4);
-        color: black !important;
-        font-weight: 600;
-        box-shadow: 0 10px 30px rgba(0,188,212,0.25);
-        line-height: 1;
-    }
+  /* Buttons: center + full-width container */
+  .actions, .features, footer.major {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .button, button, input[type="submit"] {
+    display: inline-block;
+    width: 90%;
+    max-width: 320px;
+    padding: 1rem;
+    border-radius: 8px;
+    background: #ff6f61;
+    color: #fff !important;
+    text-align: center;
+    font-size: 1.05rem;
+    font-weight: 600;
+    border: none;
+    margin: 0.75rem auto;
+  }
+  .button:hover {
+    background: #e55b4d;
+  }
 
-    /* Links: bright teal/blue accent */
-    a { color: #5ad4ff; }
-
-    /* Footer */
-    #footer {
-        margin: 1.25rem 0 2rem 0;
-        padding: 1rem;
-        background: rgba(255,255,255,0.04);
-        color: rgba(230,230,230,0.9);
-    }
-
-    /* Nav links: brighter */
-    #nav ul li a {
-        font-size: 1.05rem;
-        padding: 0.95rem 1rem;
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        line-height: 1;
-        color: #e0e0e0;
-    }
-
-    /* Slightly reduce entrance animation */
-    .animate-on-load { animation-duration: 560ms; }
-
-    @media (prefers-reduced-motion: reduce) {
-        .animate-on-load { animation: none !important; transition: none !important; }
-    }
+  /* Footer matches header colors */
+  #footer {
+    background: linear-gradient(135deg, #ff6f61, #ffb347);
+    color: #fff;
+    text-align: center;
+    padding: 1.5rem 1rem;
+    font-size: 0.9rem;
+    margin-bottom: 3.5rem; /* leave space for fixed nav */
+  }
+  #footer h2 {
+    font-size: 1.2rem;
+    color: #fff;
+  }
+  #footer a { color: #ffece5; }
 }
-
-/* Non-mobile */
-@media (min-width: 736px) { }
