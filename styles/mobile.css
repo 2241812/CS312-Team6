@@ -1,6 +1,57 @@
 /* Radical Mobile-Only Theme (Full Update) */
 @media (max-width: 700px) {
 
+  .donation-options {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    margin: 1rem;
+  }
+
+  .donation-option {
+    background: #fff;
+    padding: 1.25rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    text-align: center;
+  }
+
+  .donation-option img {
+    width: 100px;   /* same size for all images */
+    height: 100px;
+    object-fit: contain;
+    margin-bottom: 0.75rem;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .donation-option h3 {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+    color: #ff6f61;
+  }
+
+  .donation-option p {
+    font-size: 0.95rem;
+    margin-bottom: 0.75rem;
+    color: #444;
+  }
+
+  .donation-option .impact-visual {
+    font-size: 0.9rem;
+    line-height: 1.4;
+    color: #222;
+  }
+
+  .donation-option .impact-icon {
+    display: inline-block;
+    font-weight: 700;
+    font-size: 1.1rem;
+    color: #ff6f61;
+    margin-bottom: 0.25rem;
+  }
+
   body {
     background: #f5f5f5;
     color: #222;
@@ -156,8 +207,8 @@
   /* Unified Buttons (Join + Submit) */
   footer.major, .actions {
     display: flex;
-    justify-content: center;
-    align-items: center;
+    justify-content: middle;
+    align-items: middle;
     margin-top: 1rem;
   }
   .button,
@@ -177,13 +228,23 @@
     margin: 0.75rem auto;
     max-width: 260px;
     cursor: pointer;
-    transition: background 0.3s ease;
+    transition:  0.3s ease;
   }
   .button:hover,
   input[type="submit"]:hover,
   input[type="submit"].primary:hover {
     background: linear-gradient(135deg, #e55b4d, #ff9a2f);
   }
+/* Center fix ONLY for the Join Us form submit button */
+.actions.special input[type="submit"].primary {
+  display: flex;              /* make the button flex */
+  justify-content: center;    /* horizontal centering */
+  align-items: center;        /* vertical centering */
+  text-align: center;
+  height: 3rem;               /* ensure a consistent height */
+  line-height: normal;        /* avoid text shifting */
+  font-weight: 600;
+}
 
   /* Form fields mobile style */
   form .field {
